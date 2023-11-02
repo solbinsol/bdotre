@@ -5,6 +5,9 @@ import Footer from "@/component/Footer/Footer";
 import Header from "@/component/Header/Header";
 const Detail1 = () =>{
     
+
+
+
     return(
         <div>
             <Header></Header>
@@ -73,7 +76,9 @@ const Detail1 = () =>{
                                         <option value='m'>M</option>
                                         <option value='l'>L</option>
                                     </select>
-                                    <input type="submit" value="BUY NOW"/>
+                                    <Link href="order">
+                                        <input className={style.aa} type="submit" value="BUY NOW"/>
+                                    </Link>
                                 </div>
                             </div>
                             </ul>

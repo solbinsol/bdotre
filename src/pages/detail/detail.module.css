@@ -1,10 +1,13 @@
 @import url('https://webfontworld.github.io/NexonLv2Gothic/NexonLv2Gothic.css');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-@media screen and (max-width:1040px) and (min-width:769px) {
+@media screen and (max-width:1401px) and (min-width:769px) {
     .DTF h1{
         margin-top: 140px !important;
         margin-left: 10%;
+        display: none !important
+
+        
     }
     .DTALL{
         width: 80% !important;
@@ -48,6 +51,7 @@
     .DTInfo{
 
         width: 100% !important;
+        margin-left: 10%;
         font-size: 9.7px;
         position: relative;
         right: 12%;
@@ -121,13 +125,11 @@
 }
 .DTInfo span{
     float: right;
-    width: 33%;
-    
 }
 
 
 .SizeTable{
-    width: 90%;
+    width: 100%;
     float: left;
 }
 .SizeTable table{
@@ -191,4 +193,9 @@
     float: left;
     margin-bottom: 80px;
 
+}
+
+
+.aa{
+    cursor: pointer;
 }

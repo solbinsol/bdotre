@@ -1,0 +1,54 @@
+@media screen and (max-width:1901px) {
+    .SignUpPage h1{
+        margin-top: 30% !important;
+    }
+}
+
+.SignUpPage{
+    float: left;
+    width: 50%;
+    margin-left: 40%;
+    
+}
+.SignUpPage h1{
+    margin-top: 20%;
+    font-size: 25px;
+
+    font-family: 'Archivo', sans-serif;
+
+}
+.Color{
+    color:gray
+}
+.SignUpBox{
+    width: 100%;
+}
+.Line{
+    width: 100%;
+}
+.Line label{
+    display: inline-block;
+
+    margin-bottom: 10px;
+    width: 15%;
+    font-size: 18px;
+}
+.Line input {
+    width: 40%;
+    height: 25px;
+}
+
+.footerbox{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.SignUpBtn{
+    width: 55.5%;
+    border: 3px solid gray;
+    background-color: black;
+    color:white;
+    height: 40px;
+    font-family: 'GmarketSansMedium';
+
+}
