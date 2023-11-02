@@ -24,7 +24,7 @@ export default class Resizable extends Component {
                     <h2 className={style.MidH}> Resizable Collapsible </h2>
 
 
-        <div
+        <div className={style.BBox}
           style={{
             width: this.state.width + "%",
             height: this.state.height + "px",
