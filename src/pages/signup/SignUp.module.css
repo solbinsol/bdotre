@@ -1,13 +1,40 @@
-@media screen and (max-width:1901px) {
+@media screen and (max-width:1901px) and (min-width:1054px) {
     .SignUpPage h1{
         margin-top: 30% !important;
     }
 }
 
+@media screen and (max-width:1053px) {
+    .SignUpPage h1{
+        margin-top: 40% !important;
+        margin-left: 16% !important;
+    }
+    .SignUpPage{
+        float: left;
+        width: 80% !important;
+        margin-left: 0% !important;
+        
+    }
+    .SignUpBox{
+        margin-left: 17% !important;
+        width: 100% !important;
+    }
+    .Line label{
+       width: 30% !important;
+    }
+    .Line input {
+        width: 60% !important;
+        height: 25px;
+    }
+    .SignUpBtn{
+        width: 92% !important;
+    }
+}
 .SignUpPage{
     float: left;
     width: 50%;
     margin-left: 40%;
+    
     
 }
 .SignUpPage h1{

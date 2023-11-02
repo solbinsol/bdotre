@@ -1,31 +1,3 @@
-@media screen and (max-width:768px) {
-    .Slid{
-        overflow: hidden;
-        width: 100%;
-        height: 320px !important;
-        float: left;
-        z-index: 0;
-
-    }
-    .SlidItem{
-        height: 400px !important;
-    }
-    .SlidItem img
-{   
-    z-index: 0;
-    margin: 0 auto;
-}
-.Slid h2{
-
-    z-index: 0;
-    text-align: center;
-    margin-top:15% !important;
-    height: 80px;
-    line-height:75px;
-
-
-}
-}
 
 .SlidItem{
     z-index: 0;

@@ -1,0 +1,49 @@
+.OrderPage{
+    width: 60%;
+    margin-left: 20%;
+}
+.OrderPage h2{
+    margin-bottom: 10px;
+    margin: 0;
+    margin-top: 20%;
+    margin-bottom: 0;
+    font-size: 22px;
+    padding: 0;
+}
+.OrderPage h3{
+    margin-bottom: 0;
+    font-size: 21px;
+}
+.OrderPage p{
+    font-size: 18px;
+}
+.Left{
+    width: 20%;
+    float: left;
+}
+.Right{
+    width: 80%;
+    float: right;
+}
+.Right input {
+    width: 70%;
+    height: 30px;
+}
+.shipping{
+    margin-top: 3%;
+    padding: 20px;
+    border: 1px solid #000;
+    width: 100%;
+    height: 250px;
+}
+.inputp{
+    line-height: 30px;
+}
+.Self{
+    width: 70%;
+    margin-top: 10px;
+}
+.Select{
+    height: 30px;
+    width: 70%;
+}

@@ -24,7 +24,9 @@ const LoginPage = () => {
                     
                 </div>
             </div>
+            <div className={style.Footerbox}>
             <Footer></Footer>
+            </div>
         </div>
     )
 

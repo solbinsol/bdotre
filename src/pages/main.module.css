@@ -80,19 +80,49 @@
 }
 @media screen and (max-width:768px) {
 
-
+    .BigP1{
+        display: initial !important;
+        position: absolute;color:wheat;
+        font-size: 30px !important;
+        font-family: 'Archivo', sans-serif;
+        margin-top:65% !important;
+        margin-left: 40%;
+        
+    }
+    .BigP2{
+        display: initial !important;
+        position: absolute;color:wheat;
+        font-size: 20px !important;
+        font-family: 'Archivo', sans-serif;
+        margin-top:65% !important;
+        margin-left: 40%;
+        
+    }
+    .SmallP1{
+        display: initial !important;
+        position: absolute;color:wheat;
+        font-family: 'Archivo', sans-serif;
+        
+        font-size: 14px !important;
+        margin-left: 35% !important;
+        margin-top:75% !important;
+    
+    }
+    .SmallP2{
+        display: initial !important;
+        position: absolute;color:wheat;
+        font-family: 'Archivo', sans-serif;
+    
+        font-size: 14px !important;
+        margin-left: 17% !important;
+        margin-top:75% !important;
+        text-align: center;
+    }
 
 
     .Logo h1{
     }
-    .SmallP2{
-        position: absolute;color:wheat;
-        font-size: 10px !important;
-        margin-top: 52.5% !important;
-        font-size: 10px !important;
-        margin-left: 12% !important;
-        text-align: center;
-    }
+
     .footer .Fjoin{
         width: 28%;
         font-size: 8px;
