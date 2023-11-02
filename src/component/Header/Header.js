@@ -21,8 +21,8 @@ const Header = () =>{
                 
                 <div  className={style.RMenu}>
                         <ul>
-                            <li>장바구니</li>
-                            <Link href="/login"><li>로그인/회원가입</li></Link>
+                            <li>shipping</li>
+                            <Link href="/login"><li>Login/SigunUp</li></Link>
                         </ul>
                 </div >
                 

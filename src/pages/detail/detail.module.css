@@ -49,9 +49,8 @@
     }
 
     .DTInfo{
-
         width: 100% !important;
-        margin-left: 10%;
+        margin-left: 4%;
         font-size: 9.7px;
         position: relative;
         right: 12%;
@@ -147,6 +146,7 @@
 .ST th{
     border: 2px solid gray;
     padding-top: 10px;
+    line-height: 10px ;
     height: 20px;
 }
 .BuyBtn{

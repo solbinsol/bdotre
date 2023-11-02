@@ -10,7 +10,6 @@
         font-size: 18px;
     }
     .header .RMenu{
-        width: 30% !important;
 
     }
 }
@@ -21,7 +20,8 @@
         display: none;
     }
     .header .RMenu{
-        display: none;
+        width: 39% !important;
+        line-height: 50px !important;
     }
 
     .Logo h1{
