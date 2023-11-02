@@ -22,7 +22,7 @@ const Header = () =>{
                 <div  className={style.RMenu}>
                         <ul>
                             <li>shipping</li>
-                            <Link href="/login"><li>Login/SigunUp</li></Link>
+                            <Link href="/login"><li>Login</li></Link>
                         </ul>
                 </div >
                 

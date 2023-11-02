@@ -105,7 +105,7 @@
         
         font-size: 14px !important;
         margin-left: 35% !important;
-        margin-top:75% !important;
+        margin-top:80% !important;
     
     }
     .SmallP2{
@@ -115,7 +115,7 @@
     
         font-size: 14px !important;
         margin-left: 17% !important;
-        margin-top:75% !important;
+        margin-top:80% !important;
         text-align: center;
     }
 
@@ -163,6 +163,28 @@
     .WeeklyBest h1{
     }
 
+}
+
+@media screen and (max-width:501px) {
+    .BigP1{
+
+        display: none !important;
+    }
+    .BigP2{
+
+        display: none !important;
+
+    }
+    .SmallP1{
+        display: none !important;
+
+
+    
+    }
+    .SmallP2{
+        display: none !important;
+
+    }
 }
 
 
