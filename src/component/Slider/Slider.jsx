@@ -20,7 +20,8 @@ export default class Resizable extends Component {
       arrows:true,
     };
     return (
-      <div className="Slid">
+      <div className={style.Slid}>
+                    <h2 className={style.MidH}> Resizable Collapsible </h2>
 
 
         <div
@@ -30,23 +31,24 @@ export default class Resizable extends Component {
             display: this.state.display ? "block" : "none"
           }}
         >
+          
           <Slider {...settings}>
-            <div className="SlidItem">
+            <div className={style.SlidItem}>
                 <Link href="detail1"><img src="./images/1.jpg" alt="ss" /></Link>
             </div  >
-            <div className="SlidItem">
+            <div className={style.SlidItem}>
             <Link href="detail2"><img src="./images/2.jpg" alt="ss" /></Link>
             </div>
-            <div className="SlidItem">
+            <div className={style.SlidItem}>
             <Link href="detail3"><img src="./images/3.jpg" alt="ss" /></Link>
             </div>
-            <div className="SlidItem">
+            <div className={style.SlidItem}>
             <Link href="detail4"><img src="./images/4.jpg" alt="ss" /></Link>
             </div>
 
           </Slider>
         </div>
-        <div className="Footer">
+        <div className={style.Footer}>
             
         </div>
       </div>

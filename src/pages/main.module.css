@@ -116,7 +116,6 @@
     
     }
     .Logo h1{
-        font-family: 'Anton', sans-serif;
     }
     .SmallP2{
         position: absolute;color:wheat;
@@ -164,63 +163,12 @@
         grid-template-columns: repeat(2,1fr) !important;
     }
     .WeeklyBest h1{
-        font-family: 'Anton', sans-serif;
     }
 
 }
 
 
-.header{
-    border-bottom: 2px solid gray;
-    float: left;
-    width: 100%;
-    position: fixed;
-    background-color: white;
-    height: 80px;
-    z-index: 99;
-    font-size: 19px;
-    
-    line-height: 30px;
-}
-.header .Logo h1{
-    font-family: 'Anton', sans-serif;
-    width: 6%;
-    float: left;
-    margin-left: 1%;
-}
-.MidH{
-    font-size: 30px;
-    font-family: 'Anton', sans-serif;
-    margin-top: 40px;
-}
-.header .Menu{
-    font-family: 'Anton', sans-serif;
-    float: left;
-}
-.header .Menu.LMenu{
-    font-family: 'Anton', sans-serif;
-    float: left;
-    width: 50%;
-}
 
-.header .LMenu ul li{
-    font-family: 'Anton', sans-serif;
-    margin-right:30px;
-    margin-top: 1.5%;
-    float: left;
-
-}
-.header .RMenu{
-    width: 30%;
-    font-family: 'Anton', sans-serif;
-    float: right;
-}
-.header .RMenu li{
-    font-family: 'Anton', sans-serif;
-    margin-right: 8%;
-    margin-top: 1.5%;
-    float: left;
-}
 .LinkImg{
     width: 100%;background-color: aliceblue;
     height: 850px;
@@ -259,7 +207,6 @@
 }
 .BigP1{
     display: none;
-    font-family: 'Anton', sans-serif;
     position: absolute;color:wheat;
     font-size: 70px;
     margin-left: 20%;
@@ -268,7 +215,6 @@
 }
 .BigP2{
     display: none;
-    font-family: 'Anton', sans-serif;
     position: absolute;color:wheat;
     font-size: 70px;
     margin-left: 20%;
@@ -277,7 +223,6 @@
 }
 .SmallP1{
     display: none;
-    font-family: 'Anton', sans-serif;
     position: absolute;color:wheat;
 
     font-size: 22px;
@@ -287,7 +232,6 @@
 }
 .SmallP2{
     display: none;
-    font-family: 'Anton', sans-serif;
     position: absolute;color:wheat;
     font-size: 22px;
     margin-left: 17%;
@@ -303,7 +247,6 @@
 
 }
 .WeeklyBest h1{
-    font-family: 'Anton', sans-serif;
     font-size: 30px;
 
 }
@@ -340,54 +283,9 @@
     padding-bottom: 100px;
     z-index: 0;
 }
-.footer{
-    float: left;
-    bottom: 0;
-    width: 100%;height:350px;
-    margin-top: 0px;
-    background-color: black;
-    color:white;
-}
-.Fitem{
-    color:white;
+
+
+.WeeklyHeade h2{
+    font-size: 24px ;
     margin-top: 40px;
-}
-.Fitem p{
-    font-size: 10px;
-    
-}
-.Lfooter{
-    float: left;
-    list-style-type: disc;
-    width: 300px;
-    margin: 20px;
-    
-}
-.Lfooter ul li{
-
-}
-.List{
-    float: left;
-}
-.Rfooter{
-    float: right;
-    width: 20%;
-
-}
-.Fitem{
-
-    height: 40px;
-}
-.Fjoin{
-    width: 20%;
-    float: right;
-
-}
-.Btn{
-    width:45%;
-    margin-top: 20px;
-    height: 35px;
-    background-color: black;
-    color:white;
-    border: 1px solid white;
 }

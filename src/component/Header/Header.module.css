@@ -1,0 +1,87 @@
+@media screen  and (max-width:1040px) and (min-width:769px)
+{
+    .header{
+
+        font-size: 18px !important;
+    }    
+    .header .LMenu{
+        width: 100%;
+        font-size: 18px;
+    }
+    .header .RMenu{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        width: 33% !important;
+        line-height: 22px;
+
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    .header .Menu{
+        display: none;
+    }
+    .header .RMenu{
+        display: none;
+    }
+
+    .Logo h1{
+        font-family: 'Anton', sans-serif;
+    }
+}
+
+
+
+
+.header{
+    border-bottom: 2px solid gray;
+    float: left;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    background-color: white;
+    height: 80px;
+    z-index: 99;
+    font-size: 19px;
+    
+    line-height: 30px;
+}
+.header .Logo h1{
+    font-size: 24px;
+    width: 6%;
+    font-weight: bold;
+    margin-top: 3%;
+    float: left;
+    margin-left: 1%;
+}
+.MidH{
+    font-size: 30px;
+    margin-top: 40px;
+}
+.header .Menu{
+    float: left;
+}
+.header .Menu.LMenu{
+    float: left;
+    width: 50%;
+}
+
+.header .LMenu ul li{
+    margin-right:30px;
+    margin-top: 1.5%;
+    float: left;
+
+}
+.header .RMenu{
+    width: 30%;
+    float: right;
+}
+.header .RMenu li{
+    margin-right: 8%;
+    margin-top: 1.5%;
+    float: left;
+}

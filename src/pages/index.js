@@ -5,34 +5,14 @@ import "slick-carousel/slick/slick-theme.css";import "slick-carousel/slick/slick
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import Slider from "../component/Slider/Slider";
+import Footer from "../component/Footer/Footer";
+import Header from "@/component/Header/Header";
 const main = () =>{
 
     return(
 
         <div>
-            <div className={style.header}>
-                <div className={style.Logo}>
-                    <Link href="/"><h1>B.Dot</h1></Link>
-                </div>
-                <div className={style.Menu}>
-                    <div  className={style.LMenu}>
-                        <ul>
-                            <li>ABOUT BRAND</li>
-                            <li>SHOP</li>
-                            <li>CUSTOM SERVICE</li>
-                            <li>MY PAGE</li>
-                        </ul>
-                    </div>
-                </div>
-                <div  className={style.RMenu}>
-                        <ul>
-                            <li>ABOUT BRAND</li>
-                            <li>SHOP</li>
-                            <li>CUSTOM SERVICE</li>
-                            <li>MY PAGE</li>
-                        </ul>
-                    </div >
-            </div>
+            <Header></Header>
             <div className={style.Container}>
                 <div className={style.LinkImg}>
                     <div className={style.LImg}>
@@ -64,7 +44,7 @@ const main = () =>{
                 </div>
                 <div className={style.WeeklyBest}>
                     <div className={style.WeeklyHeade}>
-                        <h1>WeeklyBest</h1>
+                        <h2>WeeklyBest</h2>
                     </div>
                     <div className={style.ClosetBar}>
                         <div className={style.Closet}>
@@ -85,47 +65,13 @@ const main = () =>{
                         </div>
 
                     </div>
-                    <h2 className={style.MidH}> Resizable Collapsible </h2>
 
                 </div>
                 <div className={style.SB}>
                     <Slider></Slider>
                 </div>  
             </div>
-            <div className={style.footer}>
-                <div className={style.Fitem}>
-                  <div className={style.Lfooter}>
-                        <ul className={style.ListAll}>
-                            <ul className={style.List}><div className={style.S}>HELP</div>
-                                <li>Guid</li>
-                                <li>Privacy</li>
-                            </ul>
-                            <ul className={style.List}><div className={style.S}>SOCIAL</div>
-                                <li>Facebook</li>
-                                <li>Instargam</li>
-                            </ul>
-                        </ul>
-                    </div>
-                    <div className={style.Fjoin}>
-                        <h4>Join Us</h4>
-                        <p>회원을 위한 다양한 혜태기 준비되어 있습니다. </p>
-                        <p>Sign Up now enjoy convenient features and benefits.</p>
-                        <input className={style.Btn} type="submit" value="JOIN US"/>
-                        <br/>
-
-                    </div>
-                    <div className={style.Rfooter}>
-                        <h4>OUR STORE</h4>
-                        <p>AM - 10:00 - PM - 6:00 </p>
-                        <p>주식회사 비닷 / 이정훈</p>
-                        <p>경기도 수원시 권선구 효탑로 16번길 35 , 602호</p>
-                        <br/>
-                        <p>qkaejwnj@naver.com</p>
-                        <p>010-6286-7011</p>
-                    </div>
-
-                    </div>
-                </div>
+            <Footer></Footer>
         </div>
         
 
