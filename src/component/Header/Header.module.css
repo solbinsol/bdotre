@@ -81,8 +81,10 @@
 
 }
 .header .RMenu{
-    width: 30%;
+    width: 18%;
     float: right;
+    font-size: 14px;
+    line-height: 40px;
 }
 .header .RMenu li{
     margin-right: 8%;

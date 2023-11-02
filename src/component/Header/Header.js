@@ -18,16 +18,14 @@ const Header = () =>{
                         </ul>
                     </div>
                 </div>
-                {/* 
+                
                 <div  className={style.RMenu}>
                         <ul>
-                            <li>ABOUT BRAND</li>
-                            <li>SHOP</li>
-                            <li>CUSTOM SERVICE</li>
-                            <li>MY PAGE</li>
+                            <li>장바구니</li>
+                            <Link href="/login"><li>로그인/회원가입</li></Link>
                         </ul>
                 </div >
-                */}
+                
         </div>
     )
 }
