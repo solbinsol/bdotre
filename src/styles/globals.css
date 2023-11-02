@@ -6,12 +6,7 @@ body{
 
 }
 
-@font-face {
-  font-family: 'ABFont'; /* 폰트 이름 */
-  src: url('/font/Archivo/Archivo-Italic-VariableFont_wdth,wght.ttf') format('truetype'); /* 폰트 파일 경로 및 형식 */
-  font-weight: normal;
-  font-style: normal;
-}
+
 *{
   list-style: none;
   text-decoration: none;
@@ -23,6 +18,13 @@ img{
 @font-face {
   font-family: 'GmarketSansMedium';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Archivo', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,900&display=swap') format('woff');
   font-weight: normal;
   font-style: normal;
 }
