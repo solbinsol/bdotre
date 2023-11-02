@@ -1,0 +1,393 @@
+@import url('https://webfontworld.github.io/NexonLv2Gothic/NexonLv2Gothic.css');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/* *{
+    list-style: none;
+    font-family: 'NexonLv2Gothic';
+    text-decoration: none;
+    color: inherit;
+} */
+@media screen and (max-width:1660px)  and (min-width:1041px){
+    .RMenu{
+        line-height: 20px;
+
+
+    }
+    .BigP1{
+        margin-top: 25% !important;
+        margin-left: 18% !important;
+
+
+    }
+    .BigP2{
+        margin-top: 25% !important;
+        margin-right: 18% !important;
+
+
+    }
+    .SmallP1{
+        margin-left: 19% !important;
+        margin-top: 33% !important;
+    }
+    .SmallP2{
+        margin-left: 15% !important;
+        margin-top: 33% !important;
+    }
+}
+@media screen  and (max-width:1040px) and (min-width:769px)
+{
+    .header{
+
+        font-size: 18px !important;
+    }    
+    .header .LMenu{
+        width: 100%;
+        font-size: 18px;
+    }
+    .header .RMenu{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        width: 33% !important;
+        line-height: 22px;
+
+    }
+    .BigP1{
+        widows: 100% !important;
+        height: 100% !important;
+        margin-top: 45% !important;
+        margin-left: 15% !important;
+    }
+    .SmallP1{
+        margin-top: 58% !important;
+        margin-left: 15% !important;
+    }
+    .BigP2{
+        margin-top: 45% !important;
+        margin-left: 15% !important;
+    }
+    .SmallP2{
+        margin-top: 58% !important;
+        margin-left:8% !important;
+    }
+    
+}
+@media screen and (max-width:768px) {
+    .BigP1{
+        display: initial !important;
+    }
+    .BigP2{
+        display: initial !important;
+    }
+    .SmallP1{
+        display: initial !important;
+    }
+    .SmallP2{
+        display: initial !important;
+    }
+    .LinkImg{
+        height: 400px !important; 
+    
+    }
+
+    .header .Menu{
+        display: none;
+    }
+    .header .RMenu{
+        display: none;
+    }
+    .BigP1{
+        font-size: 40px !important;
+        position: absolute !important;
+
+        margin-left: 15% !important;
+        margin-top: 40% !important;
+    }
+    .BigP2{
+        font-size: 40px !important;
+        position: absolute !important;
+        margin-left: 15% !important;
+        margin-top: 40% !important;
+        
+    }
+    .SmallP1{
+        position: absolute;color:wheat;
+        margin-top: 52.5% !important;
+        font-size: 10px !important;
+        margin-left: 18% !important;
+    
+    }
+    .Logo h1{
+        font-family: 'Anton', sans-serif;
+    }
+    .SmallP2{
+        position: absolute;color:wheat;
+        font-size: 10px !important;
+        margin-top: 52.5% !important;
+        font-size: 10px !important;
+        margin-left: 12% !important;
+        text-align: center;
+    }
+    .footer .Fjoin{
+        width: 28%;
+        font-size: 8px;
+        margin-right: 2%;
+    }
+    .footer .Btn{
+        width: 80%;
+    }
+    .footer .Fitem
+    {
+        font-size: 8px;
+    }
+    .footer .List{
+    }
+    .footer .Rfooter{
+        width: 40%;
+        margin-right: 21.5%;
+    }
+    .ListAll{
+        /* width: 10%; */
+        position: relative;
+        right: 20%;
+        bottom: 20px;
+        width: 100%;
+        background-origin: padding-box;
+    }
+    .SB:active{
+        
+    }
+    .WeeklyBest{
+        font-size: 10.5px !important;
+
+    }
+    .ClosetBar{
+        display: grid;
+        grid-template-columns: repeat(2,1fr) !important;
+    }
+    .WeeklyBest h1{
+        font-family: 'Anton', sans-serif;
+    }
+
+}
+
+
+.header{
+    border-bottom: 2px solid gray;
+    float: left;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    height: 80px;
+    z-index: 99;
+    font-size: 19px;
+    
+    line-height: 30px;
+}
+.header .Logo h1{
+    font-family: 'Anton', sans-serif;
+    width: 6%;
+    float: left;
+    margin-left: 1%;
+}
+.MidH{
+    font-size: 30px;
+    font-family: 'Anton', sans-serif;
+    margin-top: 40px;
+}
+.header .Menu{
+    font-family: 'Anton', sans-serif;
+    float: left;
+}
+.header .Menu.LMenu{
+    font-family: 'Anton', sans-serif;
+    float: left;
+    width: 50%;
+}
+
+.header .LMenu ul li{
+    font-family: 'Anton', sans-serif;
+    margin-right:30px;
+    margin-top: 1.5%;
+    float: left;
+
+}
+.header .RMenu{
+    width: 30%;
+    font-family: 'Anton', sans-serif;
+    float: right;
+}
+.header .RMenu li{
+    font-family: 'Anton', sans-serif;
+    margin-right: 8%;
+    margin-top: 1.5%;
+    float: left;
+}
+.LinkImg{
+    width: 100%;background-color: aliceblue;
+    height: 850px;
+    float: left;
+
+}
+
+.LinkImg .LImg{
+    float: left;
+    width: 50%;
+    object-fit: cover;
+    background-color: red;
+    height: 100%;
+}
+.LinkImg .RImg{
+    float: left;
+    width: 50%;
+    z-index:99;
+    height: 100%;
+}
+.LinkImg img{
+    width: 100%;
+    height: 100%;
+}
+.LImg:hover .BigP1{
+    display: initial;
+}
+.RImg:hover .BigP2{
+    display: initial;
+}
+.LImg:hover .SmallP1{
+    display: initial;
+}
+.RImg:hover .SmallP2{
+    display: initial;
+}
+.BigP1{
+    display: none;
+    font-family: 'Anton', sans-serif;
+    position: absolute;color:wheat;
+    font-size: 70px;
+    margin-left: 20%;
+    margin-top:20%;
+    
+}
+.BigP2{
+    display: none;
+    font-family: 'Anton', sans-serif;
+    position: absolute;color:wheat;
+    font-size: 70px;
+    margin-left: 20%;
+    margin-top:20%;
+    
+}
+.SmallP1{
+    display: none;
+    font-family: 'Anton', sans-serif;
+    position: absolute;color:wheat;
+
+    font-size: 22px;
+    margin-left: 20.5%;
+    margin-top:25%;
+
+}
+.SmallP2{
+    display: none;
+    font-family: 'Anton', sans-serif;
+    position: absolute;color:wheat;
+    font-size: 22px;
+    margin-left: 17%;
+    margin-top: 25%;
+    text-align: center;
+}
+
+.WeeklyBest{
+    
+    text-align: center;
+    width: 100%;
+    float: left;
+
+}
+.WeeklyBest h1{
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+
+}
+.WeeklyBest.WeeklyBest{
+    font-size: 15px;
+}
+.Closet{
+    float: left;
+
+    width: 100%;
+
+}
+.SB{
+    font-size: 30px;
+}
+.ClosetBar{
+
+    display: grid;
+    grid-template-columns:repeat(4,auto);
+    width: 100%;
+    height: 100%;
+}
+.Closet img{
+    width: 100%;
+    height: 80%;
+}
+
+
+.SB{
+    /* background-color: yellow; */
+
+    width: 100%;
+    float: left;
+    padding-bottom: 100px;
+    z-index: 0;
+}
+.footer{
+    float: left;
+    bottom: 0;
+    width: 100%;height:350px;
+    margin-top: 0px;
+    background-color: black;
+    color:white;
+}
+.Fitem{
+    color:white;
+    margin-top: 40px;
+}
+.Fitem p{
+    font-size: 10px;
+    
+}
+.Lfooter{
+    float: left;
+    list-style-type: disc;
+    width: 300px;
+    margin: 20px;
+    
+}
+.Lfooter ul li{
+
+}
+.List{
+    float: left;
+}
+.Rfooter{
+    float: right;
+    width: 20%;
+
+}
+.Fitem{
+
+    height: 40px;
+}
+.Fjoin{
+    width: 20%;
+    float: right;
+
+}
+.Btn{
+    width:45%;
+    margin-top: 20px;
+    height: 35px;
+    background-color: black;
+    color:white;
+    border: 1px solid white;
+}
