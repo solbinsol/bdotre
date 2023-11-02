@@ -87,9 +87,10 @@ const Detail1 = () =>{
                     <img src="./images/f2.jpg" alt="s" />
                 </div>
                 </div>
-                <Footer></Footer>
 
             </div>
+            <Footer></Footer>
+
         </div>
     )
 }

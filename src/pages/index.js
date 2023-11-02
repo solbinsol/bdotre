@@ -17,7 +17,7 @@ const main = () =>{
                 <div className={style.LinkImg}>
                     <div className={style.LImg}>
                         <div className={style.Pbox}>
-                        <p className={style.BigP1}>B.Dot1</p>
+                        <p className={style.BigP1}>B.Dot</p>
                         <p className={style.SmallP1}>2023 new closet</p>
                         </div>
                         <img src="./images/m2.jpg" alt="" />

@@ -6,35 +6,60 @@
     text-decoration: none;
     color: inherit;
 } */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,900&display=swap');
 @media screen and (max-width:1660px)  and (min-width:1041px){
-    .RMenu{
-        line-height: 20px;
-
-
-    }
     .BigP1{
-        margin-top: 25% !important;
-        margin-left: 18% !important;
-
-
-    }
-    .BigP2{
-        margin-top: 25% !important;
-        margin-right: 18% !important;
-
-
+        margin-top: 55% !important;
+        font-size: 60px !important ;
+        margin-left: 36% !important;
     }
     .SmallP1{
-        margin-left: 19% !important;
-        margin-top: 33% !important;
+        margin-top: 65% !important;
+
+        font-size: 15px !important;
+        margin-left: 40% !important;
+    }
+
+    .BigP2{
+        font-size: 60px !important ;
+        margin-top: 55% !important;
+
+        margin-left: 36% !important;
     }
     .SmallP2{
-        margin-left: 15% !important;
-        margin-top: 33% !important;
+        font-size: 15px !important;
+        margin-left: 32% !important;
+        margin-top: 65% !important;
+
     }
 }
 @media screen  and (max-width:1040px) and (min-width:769px)
 {
+    .BigP1{
+        margin-top: 55% !important;
+        font-size: 50px !important ;
+        margin-left: 36% !important;
+    }
+    .SmallP1{
+        margin-top: 65% !important;
+
+        font-size: 15px !important;
+        margin-left: 37% !important;
+    }
+
+    .BigP2{
+        font-size: 50px !important ;
+        margin-top: 55% !important;
+
+        margin-left: 36% !important;
+    }
+    .SmallP2{
+        font-size: 15px !important;
+        margin-left: 28% !important;
+        margin-top: 65% !important;
+
+    }
     .header{
 
         font-size: 18px !important;
@@ -50,71 +75,14 @@
         line-height: 22px;
 
     }
-    .BigP1{
-        widows: 100% !important;
-        height: 100% !important;
-        margin-top: 45% !important;
-        margin-left: 15% !important;
-    }
-    .SmallP1{
-        margin-top: 58% !important;
-        margin-left: 15% !important;
-    }
-    .BigP2{
-        margin-top: 45% !important;
-        margin-left: 15% !important;
-    }
-    .SmallP2{
-        margin-top: 58% !important;
-        margin-left:8% !important;
-    }
+    
     
 }
 @media screen and (max-width:768px) {
-    .BigP1{
-        display: initial !important;
-    }
-    .BigP2{
-        display: initial !important;
-    }
-    .SmallP1{
-        display: initial !important;
-    }
-    .SmallP2{
-        display: initial !important;
-    }
-    .LinkImg{
-        height: 400px !important; 
-    
-    }
 
-    .header .Menu{
-        display: none;
-    }
-    .header .RMenu{
-        display: none;
-    }
-    .BigP1{
-        font-size: 40px !important;
-        position: absolute !important;
 
-        margin-left: 15% !important;
-        margin-top: 40% !important;
-    }
-    .BigP2{
-        font-size: 40px !important;
-        position: absolute !important;
-        margin-left: 15% !important;
-        margin-top: 40% !important;
-        
-    }
-    .SmallP1{
-        position: absolute;color:wheat;
-        margin-top: 52.5% !important;
-        font-size: 10px !important;
-        margin-left: 18% !important;
-    
-    }
+
+
     .Logo h1{
     }
     .SmallP2{
@@ -170,8 +138,8 @@
 
 
 .LinkImg{
-    width: 100%;background-color: aliceblue;
-    height: 850px;
+    width: 100%;
+    height: auto;
     float: left;
 
 }
@@ -179,13 +147,14 @@
 .LinkImg .LImg{
     float: left;
     width: 50%;
-    object-fit: cover;
-    background-color: red;
+    object-fit: contain;
     height: 100%;
 }
 .LinkImg .RImg{
     float: left;
     width: 50%;
+    object-fit: contain;
+
     z-index:99;
     height: 100%;
 }
@@ -205,37 +174,45 @@
 .RImg:hover .SmallP2{
     display: initial;
 }
+.Pbox{
+    position: relative;
+}
 .BigP1{
     display: none;
     position: absolute;color:wheat;
-    font-size: 70px;
-    margin-left: 20%;
-    margin-top:20%;
+    font-size: 100px;
+    font-family: 'Archivo', sans-serif;
+    margin-top:50%;
+    margin-left: 40%;
     
 }
 .BigP2{
     display: none;
     position: absolute;color:wheat;
-    font-size: 70px;
-    margin-left: 20%;
-    margin-top:20%;
+    font-size: 100px;
+    font-family: 'Archivo', sans-serif;
+    margin-top:50%;
+    margin-left: 40%;
     
 }
 .SmallP1{
     display: none;
     position: absolute;color:wheat;
+    font-family: 'Archivo', sans-serif;
 
     font-size: 22px;
-    margin-left: 20.5%;
-    margin-top:25%;
+    margin-left: 45%;
+    margin-top:60%;
 
 }
 .SmallP2{
     display: none;
     position: absolute;color:wheat;
+    font-family: 'Archivo', sans-serif;
+
     font-size: 22px;
-    margin-left: 17%;
-    margin-top: 25%;
+    margin-left: 39%;
+    margin-top:60%;
     text-align: center;
 }
 
