@@ -67,7 +67,7 @@ const Detail1 = () =>{
                                     </tr>
                                 </table>
                                 <div className={style.BuyBtn}>
-                                    <select name="size" className="OPsize">
+                                    <select name="size" className={style.OPsize}>
                                         <option value=''>사이즈 선택</option>
                                         <option value='s'>S</option>
                                         <option value='m'>M</option>

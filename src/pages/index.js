@@ -48,19 +48,19 @@ const main = () =>{
                     </div>
                     <div className={style.ClosetBar}>
                         <div className={style.Closet}>
-                            <Link href="/detail1"><img src="images/1.jpg" alt="s" />
+                            <Link href="/detail"><img src="images/1.jpg" alt="s" />
                             <p>시어서커 체크 셔츠 3c</p><p>45,600</p></Link>
                         </div>
                         <div className={style.Closet}>
-                        <Link href="/detail2"><img src="images/2.jpg" alt="ss" />
+                        <Link href="/detail"><img src="images/2.jpg" alt="ss" />
                             <p>로고 플레이 비니</p><p>19,000원</p></Link>
                         </div>
                         <div className={style.Closet}>
-                        <Link href="/detail3"><img src="images/3.jpg" alt="sss" />
+                        <Link href="/detail"><img src="images/3.jpg" alt="sss" />
                             <p>로즈 디지털 프린팅 반팔 2c</p><p>23,000원</p></Link>
                         </div>
                         <div className={style.Closet}>
-                        <Link href="/detail4"><img src="images/4.jpg" alt="sswws" />
+                        <Link href="/detail"><img src="images/4.jpg" alt="sswws" />
                             <p>크랙 믹시드 레더 자켓 </p><p>93,500</p></Link>
                         </div>
 

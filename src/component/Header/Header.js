@@ -1,4 +1,4 @@
-import React from "react"
+// import React from "react"
 import style from "./Header.module.css"
 import Link from "next/link"
 const Header = () =>{
@@ -18,6 +18,7 @@ const Header = () =>{
                         </ul>
                     </div>
                 </div>
+                {/* 
                 <div  className={style.RMenu}>
                         <ul>
                             <li>ABOUT BRAND</li>
@@ -26,6 +27,7 @@ const Header = () =>{
                             <li>MY PAGE</li>
                         </ul>
                 </div >
+                */}
         </div>
     )
 }
