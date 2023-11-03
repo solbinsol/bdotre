@@ -33,13 +33,13 @@ const OrderPage =()=>{
                 <div className={style.shipping}>
                     <h3>배송 정보</h3>
                     <div className={style.Left}>
-                        <p>이름 / 연락처 </p>
+                        <p>이름 / 연락처</p>
                         <p className={style.inputp}>주소 </p>
-                        <label>배송 요청 사항:</label>
+                        <label>요청 사항:</label>
                     
                     </div>
                     <div className={style.Right}>
-                        <p>김솔빈 | 010-6286-7011</p>
+                        <p><span>김솔빈 | 010-6286-7011</span></p>
                         <p><input type="text"/></p>
                         <select className={style.Select} value={deliveryNote} onChange={handleNoteChange}>
                             <option value="">배송 요청 사항을 선택하세요</option>

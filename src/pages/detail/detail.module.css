@@ -3,11 +3,8 @@
 
 @media screen and (max-width:1401px) and (min-width:769px) {
     .DTF h1{
-        margin-top: 140px !important;
         margin-left: 10%;
-        display: none !important
-
-        
+        margin-top: 0 !important;        
     }
     .DTALL{
         width: 80% !important;
@@ -17,6 +14,7 @@
 
     .DTF img{
         width: 100% !important;
+        height: 70% !important;
     }
 
     .DTInfo{
@@ -51,6 +49,7 @@
     }
 
     .DTInfo{
+
         width: 100% !important;
         font-size: 9.7px;
         position: relative;
@@ -108,13 +107,14 @@
 
 }
 .DTF h1{
+
+
     margin-top: 100px;
     margin-bottom: 0;
     margin-left: 7%;
 }
 .DTInfo{
     float: left;
-    
     height: 100%;
     width: 45%;
 }

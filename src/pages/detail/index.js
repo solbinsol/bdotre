@@ -38,12 +38,17 @@ const Detail1 = () =>{
                                 <li className={style.BD}>비닷 적릭급<span>최대 3,000 포인트</span></li>
                                 <div className={style.SizeTable}>
                                 <table className={style.ST}>
-                                    <th>cm/단면</th>
-                                    <th>총장</th>
-                                    <th>허리</th>
-                                    <th>엉덩이</th>
-                                    <th>허벅지</th>
-                                    <th>밑위</th>
+                                    <thead>
+                                        <tr>
+                                            <th>cm/단면</th>
+                                            <th>총장</th>
+                                            <th>허리</th>
+                                            <th>엉덩이</th>
+                                            <th>허벅지</th>
+                                            <th>밑위</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                     <tr>
                                         <td>S</td>
                                         <td>61</td>
@@ -68,6 +73,7 @@ const Detail1 = () =>{
                                         <td>39</td>
                                         <td>34</td>
                                     </tr>
+                                    </tbody>
                                 </table>
                                 <div className={style.BuyBtn}>
                                     <select name="size" className={style.OPsize}>

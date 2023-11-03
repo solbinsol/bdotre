@@ -1,5 +1,20 @@
-.OrderPage{
-    width: 60%;
+@media screen and (max-width:600px) {
+    .OrderPage{    
+        width: 80% !important;
+        margin-left: 5% !important;
+    }
+    .OrderPage h2{
+        margin-top: 40% !important;
+    }
+    .Right p{
+        line-height: 24px;
+    }
+    .Right input {
+        height: 20px !important;
+    }
+}
+
+.OrderPage{    width: 60%;
     margin-left: 20%;
 }
 .OrderPage h2{
@@ -15,19 +30,25 @@
     font-size: 21px;
 }
 .OrderPage p{
-    font-size: 18px;
+    font-size: 14px;
 }
 .Left{
-    width: 20%;
+    font-size: 14px;
+    width: auto;
     float: left;
 }
 .Right{
-    width: 80%;
+    width: 60%;
     float: right;
 }
+
 .Right input {
     width: 70%;
     height: 30px;
+}
+.Right span{
+    font-size: 11px;
+    color : gray
 }
 .shipping{
     margin-top: 3%;

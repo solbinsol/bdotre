@@ -2,7 +2,6 @@
 @media screen  and (max-width:1040px) and (min-width:769px)
 {
     .header{
-
         font-size: 18px !important;
     }    
     .header .LMenu{
@@ -10,7 +9,11 @@
         font-size: 18px;
     }
     .header .RMenu{
-
+        width: 25% !important;
+        float: right !important;
+    }
+    .RMenu li{
+        width: auto !important;
     }
 }
 
@@ -31,16 +34,28 @@
 
 
 @media screen and (max-width:450px) {
+    .header{
+        position: fixed !important;
+        height: 50px !important;
+        background-color: black !important;
+
+    }
     .header .Menu{
         display: none;
     }
+    .RMenu li{
+        line-height: 30px !important;
+    }
     .header .RMenu{
         font-size: 11px !important;
+        margin-top: 0 !important;
+        height:50px !important;
         width: 50% !important;
-        line-height: 50px !important;
     }
 
     .Logo h1{
+        font-size: 20px !important;
+        line-height: 23px !important;
         font-family: 'Anton', sans-serif;
     }
 }
@@ -48,15 +63,14 @@
 
 
 .header{
-    border-bottom: 2px solid gray;
     float: left;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     margin: 0;
     padding: 0;
-    position: fixed;
-    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.7);
     height: 80px;
     z-index: 99;
     font-size: 19px;
