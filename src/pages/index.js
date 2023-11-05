@@ -7,7 +7,43 @@ import Link from "next/link";
 import Slider from "../component/Slider/Slider";
 import Footer from "../component/Footer/Footer";
 import Header from "@/component/Header/Header";
-const main = () =>{
+import mysql from 'mysql2/promise';
+
+
+
+const dbConfig = {
+    host: 'localhost',
+    user: 'root',
+    password: '5475',
+    database: 'BDOT'
+  };
+  
+  export async function getServerSideProps(context) {
+    let clothes = [];
+    try {
+        // 데이터베이스에 연결
+        const connection = await mysql.createConnection(dbConfig);
+        // Clothes 테이블에서 데이터 조회
+        const [rows, fields] = await connection.execute('SELECT * FROM Clothes');
+        clothes = rows;
+
+        await connection.end();
+      } catch (error) {
+        console.log(rows[0])
+        console.log(product)
+        console.error('Database connection or query failed:', error);
+        // 에러 처리 로직
+      }
+    
+      // props를 통해 페이지에 데이터 전달
+      return {
+        props: { clothes }
+      };
+    }
+    
+
+const main = ({ clothes }) => {
+
 
     return(
 
@@ -47,23 +83,15 @@ const main = () =>{
                         <h2>WeeklyBest</h2>
                     </div>
                     <div className={style.ClosetBar}>
-                        <div className={style.Closet}>
-                            <Link href="/detail"><img src="images/1.jpg" alt="s" />
-                            <p>시어서커 체크 셔츠 3c</p><p>45,600</p></Link>
+                    {clothes.map((item) => (
+                        <div key={item.ClothesNum} className={style.Closet}>
+                        <Link href={`/detail/${Number(item.ClothesNum)}`}>
+                           <img src={item.ClothesPicture} alt={item.ClothesName} />
+                            <p>{item.ClothesName}</p>
+                            <p>{`${item.Price}0원`}</p>
+                        </Link>
                         </div>
-                        <div className={style.Closet}>
-                        <Link href="/detail"><img src="images/2.jpg" alt="ss" />
-                            <p>로고 플레이 비니</p><p>19,000원</p></Link>
-                        </div>
-                        <div className={style.Closet}>
-                        <Link href="/detail"><img src="images/3.jpg" alt="sss" />
-                            <p>로즈 디지털 프린팅 반팔 2c</p><p>23,000원</p></Link>
-                        </div>
-                        <div className={style.Closet}>
-                        <Link href="/detail"><img src="images/4.jpg" alt="sswws" />
-                            <p>크랙 믹시드 레더 자켓 </p><p>93,500</p></Link>
-                        </div>
-
+                    ))}
                     </div>
 
                 </div>

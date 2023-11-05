@@ -1,12 +1,50 @@
 import React from "react";
+import { useRouter } from "next/router";
 import style from "./detail.module.css"
 import Link from "next/link";
 import Footer from "@/component/Footer/Footer";
 import Header from "@/component/Header/Header";
-const Detail1 = () =>{
+import mysql from 'mysql2/promise';
+
+const dbConfig = {
+    host: 'localhost',
+    user: 'root',
+    password: '5475',
+    database: 'BDOT'
+  };
+  export async function getServerSideProps(context) {
+    const { clothesNum } = context.params;
+
+    let product = {};
+    let sizes = [];
+
+    try {
+        const connection = await mysql.createConnection(dbConfig);
+        
+        // 옷 정보를 가져오는 쿼리
+        const [productRows] = await connection.execute(
+            'SELECT * FROM Clothes WHERE ClothesNum = ?',
+            [Number(clothesNum)]
+        );
+        product = productRows[0] || null;
+
+        // 사이즈 정보를 가져오는 쿼리
+        const [sizeRows] = await connection.execute(
+            'SELECT * FROM ClothesSizes WHERE ClothesNum = ?',
+            [Number(clothesNum)]
+        );
+        sizes = sizeRows;
+
+        await connection.end();
+    } catch (error) {
+        console.error('Database connection or query failed:', error);
+    }
     
+    // product와 sizes 정보를 props로 페이지 컴포넌트에 전달합니다.
+    return { props: { product, sizes } };
+}
 
-
+    const DetailPage = ({ product,sizes  }) => {
 
     return(
         <div>
@@ -14,10 +52,9 @@ const Detail1 = () =>{
             <div className={style.DTALL}>
                 <div className={style.DTFirst}>
                     <div className={style.DTF}>
-
-                        <img src="./images/1.jpg" alt="ss" />
+                    <img src={product.ClothesPicture} alt="ss" />
                         <div className={style.DTInfo}>
-                        <h1>시어서커 셔츠</h1>
+                        <h1>{product.ClothesName}</h1>
                             <ul className={style.DTli}>
                                 
                             <h3>Product Info</h3>
@@ -33,47 +70,34 @@ const Detail1 = () =>{
                             </ul>
                             <ul className={style.DTli}>
                             <h3>Price Info</h3>
-                                <li>비닷 판매가<span> 555</span></li>
-                                <li>비닷 회원가<span> 555</span></li>
+                                <li>비닷 판매가<span> {product.Price}0</span></li>
+                                <li>비닷 회원가<span> {(Number(product.Price) - 1).toFixed(2)}0 </span></li>
                                 <li className={style.BD}>비닷 적릭급<span>최대 3,000 포인트</span></li>
                                 <div className={style.SizeTable}>
                                 <table className={style.ST}>
                                     <thead>
-                                        <tr>
-                                            <th>cm/단면</th>
-                                            <th>총장</th>
-                                            <th>허리</th>
-                                            <th>엉덩이</th>
-                                            <th>허벅지</th>
-                                            <th>밑위</th>
-                                        </tr>
+                                    <tr>
+                        <th>사이즈</th>
+                        <th>총장</th>
+                        <th>허리</th>
+                        <th>엉덩이</th>
+                        <th>허벅지</th>
+                        <th>밑위</th>
+                    </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>S</td>
-                                        <td>61</td>
-                                        <td>37</td>
-                                        <td>55</td>
-                                        <td>37</td>
-                                        <td>32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>M</td>
-                                        <td>63</td>
-                                        <td>38</td>
-                                        <td>56</td>
-                                        <td>38</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>L</td>
-                                        <td>65</td>
-                                        <td>39</td>
-                                        <td>57</td>
-                                        <td>39</td>
-                                        <td>34</td>
-                                    </tr>
-                                    </tbody>
+                    {sizes.map((size) => (
+                        <tr key={size.SizeID}>
+                            <td>{size.Size}</td>
+                            <td>{size.TotalLength}</td>
+                            <td>{size.Waist}</td>
+                            <td>{size.Hips}</td>
+                            <td>{size.Thigh}</td>
+                            <td>{size.Rise}</td>
+                        </tr>
+                    ))}
+                </tbody>
+
                                 </table>
                                 <div className={style.BuyBtn}>
                                     <select name="size" className={style.OPsize}>
@@ -94,8 +118,8 @@ const Detail1 = () =>{
                     </div>
                     <div className={style.DetalShot}>
                     <h1 className="FS">FITTING PHOTO</h1>
-                    <img src="./images/f1.jpg" alt="s" />
-                    <img src="./images/f2.jpg" alt="s" />
+                    <img src="/images/f1.jpg" alt="s" />
+                    <img src="/images/f2.jpg" alt="s" />
                 </div>
                 </div>
 
@@ -106,4 +130,4 @@ const Detail1 = () =>{
     )
 }
 
-export default Detail1
+export default DetailPage
