@@ -1,24 +1,23 @@
 import mysql from 'mysql2/promise';
 
-const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: '5475',
-  database: 'BDOT'
-};
 
+const dbConfig = {
+    host: 'localhost',
+    user: 'root',
+    password: '5475',
+    database: 'BDOT'
+  };
+  
 
 export default async function handler(req, res) {
     let connection;
-  
+    
     if (req.method === 'POST') {
-      // req.body의 구조 분해 할당 시 기본값 제공
       const { ClothesNum, Size, TotalLength, Waist, Hips, Thigh, Rise } = req.body;
   
       try {
         connection = await mysql.createConnection(dbConfig);
   
-        // SizeID는 오토 인크리먼트 필드라고 가정합니다.
         const query = `
           INSERT INTO ClothesSizes
           (ClothesNum, Size, TotalLength, Waist, Hips, Thigh, Rise)
@@ -26,12 +25,15 @@ export default async function handler(req, res) {
         `;
         const values = [ClothesNum, Size, TotalLength, Waist, Hips, Thigh, Rise];
   
-        await connection.execute(query, values);
+        // 여기서 execute 함수는 삽입된 행의 ID를 포함하는 객체를 반환합니다.
+        const [result] = await connection.execute(query, values);
         await connection.end();
   
-        res.status(201).json({ message: '사이즈 정보가 성공적으로 추가되었습니다.' });
+        // 삽입된 사이즈의 ID를 사용하여 추가된 사이즈 정보를 클라이언트에게 반환합니다.
+        // 예시에서는 ID만 반환하고 있지만 필요에 따라 추가적인 정보를 조회하여 반환할 수도 있습니다.
+        res.status(201).json({ addedSizeId: result.insertId });
       } catch (error) {
-        console.error('사이즈 정보 추가 실패:', error.message); // 오류 메시지 개선
+        console.error('사이즈 정보 추가 실패:', error.message);
         if (connection) {
           await connection.end();
         }

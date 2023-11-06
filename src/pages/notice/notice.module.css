@@ -1,5 +1,5 @@
 .Notice{
-    margin-top: 10%;
+    margin-top: 120px;
     width: 80%;
     margin-left: 10%;
     height: 50vh;
@@ -22,5 +22,17 @@
     display: none;
 }
 
-.created_at{
+.NoticeTable{
+    width: 100%;
+    font-size: 12px;
+    border: 2px solid #000;
+    border-collapse: collapse;
+}
+.NoticeTable th{
+    border: 2px solid #000;
+    padding: 10px;
+}
+.NoticeTable td{
+    border: 2px solid #000;
+    padding: 10px;
 }

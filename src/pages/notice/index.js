@@ -27,11 +27,24 @@ const NoticePage = ({ notices }) => {
       <div className={style.NoticePage}>
         <div className={style.Notice}>
           <h1>공지사항</h1>
-          {notices.map(notice => (
-            <div className={style.NoticeBox}key={notice.id}>
-              <p>{notice.title} /  {notice.content}  / {new Date(notice.created_at).toLocaleDateString()}</p>
-            </div>
-          ))}
+          <table className={style.NoticeTable}>
+            <thead>
+              <tr>
+                <th>제목</th>
+                <th>내용</th>
+                <th>날짜</th>
+              </tr>
+            </thead>
+            <tbody>
+              {notices.map(notice => (
+                <tr key={notice.id}>
+                  <td>{notice.title}</td>
+                  <td>{notice.content}</td>
+                  <td>{new Date(notice.created_at).toLocaleDateString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
       <Footer />

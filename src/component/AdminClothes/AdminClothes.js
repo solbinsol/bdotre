@@ -6,6 +6,30 @@ const AdminClothes = () => {
   const [sizes, setSizes] = useState({}); // 모든 옷의 사이즈를 저장할 객체
 
 
+  const handleDelete = async (clothesNum) => {
+    if (window.confirm(`정말 삭제하시겠습니까? 넘버 : ${clothesNum}? `)) {
+      try {
+        const res = await fetch(`/api/clothesDelete?clothesNum=${clothesNum}`, {
+          method: 'DELETE',
+        });
+  
+        if (!res.ok) {
+          throw new Error('Error deleting the item');
+        }
+  
+        // 성공적으로 삭제된 후 UI 업데이트를 위해 상태 갱신
+        setClothes(clothes.filter((item) => item.ClothesNum !== clothesNum));
+        alert('Item deleted successfully');
+  
+      } catch (error) {
+        console.error(' to delete the itFailedem:', error);
+        alert('Failed to delete the item');
+      }
+    }
+  };
+
+  
+
   
 
   const [newSizeData, setNewSizeData] = useState({
@@ -25,39 +49,62 @@ const AdminClothes = () => {
     }));
   };
   
-  const handleSizeSubmit = async (e) => {
-    e.preventDefault();
-    console.log(newSizeData);
-    try {
-      const res = await fetch('http://localhost:3000/api/addsize', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newSizeData),
-      });
-  
-      if (!res.ok) {
-        const errorDetail = await res.text(); // 서버가 반환한 에러 메시지를 텍스트로 가져옵니다.
-        console.error('Error details:', errorDetail); // 콘솔에 에러 상세 내용을 출력합니다.
-        throw new Error('사이즈 추가 실패: ' + errorDetail);
-      }
-    
+// ...
+const handleSizeSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await fetch('http://localhost:3000/api/addsize', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newSizeData),
+    });
 
-      setNewSizeData({ // 폼을 초기화합니다.
-        ClothesNum: '',
-        Size: '',
-        TotalLength: '',
-        Waist: '',
-        Hips: '',
-        Thigh: '',
-        Rise: '',
-      });
-    } catch (error) {
-      console.error('사이즈 추가 중 에러 발생:', error);
-      alert(error.message);
+    if (!res.ok) {
+      const errorDetail = await res.text(); // 서버가 반환한 에러 메시지를 텍스트로 가져옵니다.
+      console.error('Error details:', errorDetail); // 콘솔에 에러 상세 내용을 출력합니다.
+      throw new Error('사이즈 추가 실패: ' + errorDetail);
     }
-  };
+
+    // 응답에서 추가된 사이즈의 ID를 받아옵니다.
+    const { addedSizeId } = await res.json();
+
+    // TODO: 추가된 사이즈의 전체 정보를 조회하는 로직을 구현할 수 있습니다.
+    // 여기서는 예시로 추가된 사이즈 ID만을 사용합니다.
+
+    // UI 업데이트를 위해 상태를 갱신합니다.
+    // 이는 예시 코드이며, 실제 사용 사례에 맞게 조정이 필요할 수 있습니다.
+    setSizes(prevSizes => ({
+      ...prevSizes,
+      [newSizeData.ClothesNum]: [
+        ...(prevSizes[newSizeData.ClothesNum] || []),
+        {
+          SizeID: addedSizeId, // 실제로는 조회한 추가 정보를 여기에 넣어야 합니다.
+          Size: newSizeData.Size,
+          // 나머지 사이즈 정보도 이곳에 포함시키면 됩니다.
+        },
+      ],
+    }));
+
+    // 폼을 초기화합니다.
+    setNewSizeData({
+      ClothesNum: '',
+      Size: '',
+      TotalLength: '',
+      Waist: '',
+      Hips: '',
+      Thigh: '',
+      Rise: '',
+    });
+
+  } catch (error) {
+    console.error('사이즈 추가 중 에러 발생:', error);
+    alert(error.message);
+  }
+};
+// ...
+
   
   
   const fetchSizes = async (clothesNum) => {
@@ -119,9 +166,7 @@ const AdminClothes = () => {
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(clothesData);
 
-    console.log(sizeData);
     // 의류 정보와 사이즈 정보를 한 번에 API로 전송하는 로직
     try {
       const res = await fetch('http://localhost:3000/api/addclothes', {
@@ -134,6 +179,13 @@ const handleSubmit = async (e) => {
   
       if (!res.ok) throw new Error('의류 및 사이즈 정보 추가 실패');
       alert('의류 및 사이즈 정보가 성공적으로 추가되었습니다.');
+      const addedClothes = await res.json(); // 서버로부터 추가된 옷의 정보를 받습니다.
+      setClothes(prevClothes => [...prevClothes, {
+        ...clothesData,
+        ClothesNum: addedClothes.clothesId,
+        // 서버로부터 반환받은 추가된 옷의 ID를 사용하여 ClothesNum 설정
+      }]);
+  
     } catch (error) {
       console.error('추가 중 에러 발생:', error);
       alert(error.message);
@@ -166,7 +218,7 @@ const handleSubmit = async (e) => {
 </td>
                 <td>
                   {/* Action buttons here */}
-                  X
+                  <span onClick={() => handleDelete(item.ClothesNum)}>X</span>
                 </td>
               </tr>
             ))}
@@ -210,7 +262,7 @@ const handleSubmit = async (e) => {
 </form>
               <form  onSubmit={handleSizeSubmit}>
         {/* 사이즈 정보 입력 필드를 여러 개 추가해야 할 수도 있습니다. */}
-        <div>
+        <div className={style.ClothesBOX}>
             <h2>제품 정보 입력</h2>
           <label>추가할 옷 넘버</label>
           <input
@@ -220,7 +272,7 @@ const handleSubmit = async (e) => {
             onChange={handleNewSizeChange}
           />
           </div>
-          <div>
+          <div className={style.ClothesBOX}>
           <label>사이즈:</label>
           <input
             type="text"
@@ -229,7 +281,7 @@ const handleSubmit = async (e) => {
             onChange={handleNewSizeChange}
           />
         </div>
-        <div>
+        <div className={style.ClothesBOX}>
           <label>총장:</label>
           <input
             type="Number"
@@ -238,7 +290,7 @@ const handleSubmit = async (e) => {
             onChange={handleNewSizeChange}
           />
         </div>
-        <div>
+        <div className={style.ClothesBOX}>
           <label>허리:</label>
           <input
             type="Number"
@@ -247,7 +299,7 @@ const handleSubmit = async (e) => {
             onChange={handleNewSizeChange}
           />
         </div>
-        <div>
+        <div className={style.ClothesBOX}>
           <label>엉덩이:</label>
           <input
             type="Number"
@@ -256,7 +308,7 @@ const handleSubmit = async (e) => {
             onChange={handleNewSizeChange}
           />
         </div>
-        <div>
+        <div className={style.ClothesBOX}>
           <label>허벅지:</label>
           <input
             type="Number"
@@ -266,7 +318,7 @@ const handleSubmit = async (e) => {
           />
         </div>
 
-        <div>
+        <div className={style.ClothesBOX}>
           <label>밑위:</label>
           <input
             type="Number"

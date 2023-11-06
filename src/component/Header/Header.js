@@ -3,11 +3,23 @@ import style from "./Header.module.css"
 import Link from "next/link"
 import { useState ,useEffect } from "react";
 import { useRouter } from 'next/router';
+import jwt from "jsonwebtoken"; 
 
 
 const Header = () =>{
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const router = useRouter();
+    const [userName, setUserName] = useState("");
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        
+        if (storedToken) {
+          const decoded = jwt.decode(storedToken);
+          setUserName(decoded.username);
+        }
+      }, []);
+
 
     useEffect(() => {
         // 컴포넌트가 마운트될 때 로컬 스토리지를 체크하여 로그인 상태를 설정
@@ -40,15 +52,17 @@ const Header = () =>{
                 </div>
                 
                 <div  className={style.RMenu}>
-                        <ul>
-                            {isLoggedIn ? (
-                                <li onClick={handleLogout}>Logout</li>
-                            ) : (
-                                <Link href="/login"><li>Login</li></Link>
-                            )}
-                            <li>shipping</li>
-
-                        </ul>
+                {isLoggedIn ? (
+                        <>
+                            <li onClick={handleLogout}>Logout</li>
+                            <li> {userName}</li>
+                        </>
+                    ) : (
+                        <>
+                            <Link href="/signup"><li>SignUp</li></Link>
+                            <Link href="/login"><li>Login</li></Link>
+                        </>
+                    )}
                 </div >
                 
         </div>

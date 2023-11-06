@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "@/component/Header/Header";
 import style from "./admin.module.css";
 import AdminClothes from "../../component/AdminClothes/AdminClothes";
-
+import AdminNotices from "../../component/AdminNotices/AdminNotices";
 const AdminPage = () => {
   // 현재 선택된 탭을 추적하는 state
   const [activeTab, setActiveTab] = useState("");
@@ -25,6 +25,8 @@ const AdminPage = () => {
         </div>
         {/* 탭에 따라 컴포넌트 렌더링 */}
         {activeTab === "clothes" && <AdminClothes />}
+        {activeTab === "notices" && <AdminNotices />}
+
         {/* 여기에 다른 탭에 해당하는 컴포넌트를 추가할 수 있습니다 */}
       </div>
     </div>
