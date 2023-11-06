@@ -1,3 +1,13 @@
+
+@media screen and (max-width:1000px) {
+    .MyPageBox{
+        margin-top: 15% !important;
+    }
+    .MyPageBox h1{
+    }
+}
+
+
 .MyPageBox{
     margin-top: 10%;
     width: 80%;
@@ -5,7 +15,14 @@
     height: 50vh;
 }
 .MyPageBox h1{
+    font-family: 'Archivo';
     margin: 0;
     padding: 0;
+    
 }
-
+.color{
+    color:gray;
+}
+.AdminBtn{
+    
+}

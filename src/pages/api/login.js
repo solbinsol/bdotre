@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         if (bcrypt.compareSync(password, user.password)) {
           // 비밀번호가 일치하면 JWT 생성
           const token = sign(
-            { userId: user.userNum, username: user.username },
+            { userId: user.userNum, username: user.username,phone_number: user.phone_number , gender:user.gender ,birth_date : user.birth_date },
             secret,
             { expiresIn: '1h' }
           );

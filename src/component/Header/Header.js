@@ -41,12 +41,13 @@ const Header = () =>{
                 
                 <div  className={style.RMenu}>
                         <ul>
-                            <li>shipping</li>
                             {isLoggedIn ? (
                                 <li onClick={handleLogout}>Logout</li>
                             ) : (
                                 <Link href="/login"><li>Login</li></Link>
                             )}
+                            <li>shipping</li>
+
                         </ul>
                 </div >
                 

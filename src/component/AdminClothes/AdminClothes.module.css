@@ -1,0 +1,25 @@
+.AdminClothes{
+    width: 100%;
+}
+.Closet{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.Closet table{
+    text-align: left;
+    margin-top: 100px;
+    border-collapse: collapse;
+    width: 50%;
+    border: 1px solid #000;
+}
+.Closet th{
+    padding: 10px;
+
+    border: 1px solid #000;
+}
+.Closet td{
+    padding: 10px;
+
+    border: 1px solid #000;
+}
