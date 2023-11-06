@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import Header from "@/component/Header/Header";
 import Footer from "@/component/Footer/Footer";
 import style from "./SignUp.module.css";
+import { useRouter } from 'next/router'; // 라우팅을 위한 훅 추가
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     name: "",
-    gender: "male", // 초기 값 설정
-    birthdate: "",
+    phone_number: "", // 초기 상태 필드명 수정
+    gender: "남성", // 'male' 대신 '남성' 사용
+    birth_date: "", // 초기 상태 필드명 수정
   });
+  
+  const router = useRouter(); // 라우터 인스턴스 사용
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,10 +24,36 @@ const SignUpPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // 여기에서 폼 데이터를 서버로 전송하거나 다른 작업을 수행하세요.
-    console.log(formData);
+    // 서버로 데이터 전송
+    try {
+      const res = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password,
+          name: formData.name,
+          phone_number: formData.phone_number, // 필드명 수정: 'phone' -> 'phone_number'
+          gender: formData.gender,
+          birth_date: formData.birth_date // 필드명 수정: 'birthdate' -> 'birth_date'
+        }),
+      });
+
+      if (res.status === 201) {
+        // 회원가입 성공 처리, 예: 로그인 페이지로 이동
+        router.push('/login');
+      } else {
+        throw new Error(await res.text());
+      }
+    } catch (error) {
+      console.error('회원가입 중 에러 발생:', error);
+      // 사용자에게 에러 메시지 표시
+      alert('회원가입에 실패하였습니다.');
+    }
   };
 
   return (
@@ -68,9 +98,9 @@ const SignUpPage = () => {
             <label htmlFor="name">전화번호</label>
             <input
               type="number"
-              id="phone"
-              name="phone"
-              value={formData.phone}
+              id="phone_number"
+              name="phone_number"
+              value={formData.phone_number}
               onChange={handleInputChange}
             />
           </div>
@@ -81,17 +111,17 @@ const SignUpPage = () => {
               value={formData.gender}
               onChange={handleInputChange}
             >
-              <option value="male">남성</option>
-              <option value="female">여성</option>
+              <option value="남성">남성</option>
+              <option value="여성">여성</option>
             </select>
           </div>
           <div className={style.Line}>
-            <label htmlFor="birthdate">생년월일</label>
+            <label htmlFor="birth_date">생년월일</label>
             <input
               type="date"
-              id="birthdate"
-              name="birthdate"
-              value={formData.birthdate}
+              id="birth_date"
+              name="birth_date"
+              value={formData.birth_date}
               onChange={handleInputChange}
             />
           </div>

@@ -1,50 +1,46 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter,useEffect } from "next/router";
 import style from "./detail.module.css"
 import Link from "next/link";
 import Footer from "@/component/Footer/Footer";
 import Header from "@/component/Header/Header";
-import mysql from 'mysql2/promise';
 
-const dbConfig = {
-    host: 'localhost',
-    user: 'root',
-    password: '5475',
-    database: 'BDOT'
-  };
-  export async function getServerSideProps(context) {
+  // 해당 페이지 컴포넌트의 getServerSideProps 함수
+// pages/detail/[clothesNum].js
+
+export async function getServerSideProps(context) {
     const { clothesNum } = context.params;
-
-    let product = {};
-    let sizes = [];
-
+    let product = null; // 기본값을 null로 설정
+    let sizes = null; // 기본값을 null로 설정
+  
     try {
-        const connection = await mysql.createConnection(dbConfig);
-        
-        // 옷 정보를 가져오는 쿼리
-        const [productRows] = await connection.execute(
-            'SELECT * FROM Clothes WHERE ClothesNum = ?',
-            [Number(clothesNum)]
-        );
-        product = productRows[0] || null;
-
-        // 사이즈 정보를 가져오는 쿼리
-        const [sizeRows] = await connection.execute(
-            'SELECT * FROM ClothesSizes WHERE ClothesNum = ?',
-            [Number(clothesNum)]
-        );
-        sizes = sizeRows;
-
-        await connection.end();
+      // 내부 API 라우트를 호출하여 데이터 검색
+      const res = await fetch(`http://localhost:3000/api/detail?clothesNum=${Number(clothesNum)}`);
+      if (!res.ok) {
+        // 응답이 성공적이지 않은 경우
+        throw new Error(`Failed to fetch data, status code: ${res.status}`);
+      }
+      const data = await res.json();
+      console.log(data);
+  
+      // data.product가 존재하지 않는 경우, product와 sizes는 이미 null로 설정되어 있습니다.
+      if (data && data.product) {
+        product = data.product;
+        sizes = data.sizes;
+      }
     } catch (error) {
-        console.error('Database connection or query failed:', error);
+      console.error('Failed to fetch product details:', error);
+      // 에러가 발생했을 때 적절한 처리를 합니다. 예를 들어, 에러 로깅, 오류 페이지로 리다이렉션 등
     }
-    
-    // product와 sizes 정보를 props로 페이지 컴포넌트에 전달합니다.
+  
+    // props로 null이나 실제 데이터를 전달합니다.
     return { props: { product, sizes } };
-}
+  }
+  
+  
 
     const DetailPage = ({ product,sizes  }) => {
+
 
     return(
         <div>
@@ -52,7 +48,7 @@ const dbConfig = {
             <div className={style.DTALL}>
                 <div className={style.DTFirst}>
                     <div className={style.DTF}>
-                    <img src={product.ClothesPicture} alt="ss" />
+                    <img src={product.ClothesPicture} alt={product.ClothesName} />
                         <div className={style.DTInfo}>
                         <h1>{product.ClothesName}</h1>
                             <ul className={style.DTli}>
@@ -106,7 +102,7 @@ const dbConfig = {
                                         <option value='m'>M</option>
                                         <option value='l'>L</option>
                                     </select>
-                                    <Link href="order">
+                                    <Link href="/order">
                                         <input className={style.aa} type="submit" value="BUY NOW"/>
                                     </Link>
                                 </div>

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import Link from "next/link";
 import style from './Slider.module.css';
+
+
 export default class Resizable extends Component {
   state = {
     display: true,
@@ -9,6 +11,25 @@ export default class Resizable extends Component {
     height:600,
 
   };
+
+  renderSlides() {
+    const { clothes } = this.props;
+    if (!clothes) {
+      return <p>No clothes data available.</p>; // 또는 return null; 또는 return []; 등
+    }
+    // clothes 배열을 이용하여 슬라이더 아이템을 동적으로 렌더링합니다.
+    return clothes.map((cloth, index) => (
+      <div key={index} className={style.SlidItem}>
+        <Link href={`/detail/${cloth.ClothesNum}`}>
+          <img src={cloth.ClothesPicture} alt={cloth.ClothesName} />
+        </Link>
+      </div>
+    ));
+  }
+
+
+
+
   render() {
     const settings = {
 
@@ -21,36 +42,20 @@ export default class Resizable extends Component {
     };
     return (
       <div className={style.Slid}>
-                    <h2 className={style.MidH}> Resizable Collapsible </h2>
-
-
-        <div className={style.BBox}
+        <h2 className={style.MidH}>Resizable Collapsible</h2>
+        <div
+          className={style.BBox}
           style={{
             width: this.state.width + "%",
             height: this.state.height + "px",
-            display: this.state.display ? "block" : "none"
+            display: this.state.display ? "block" : "none",
           }}
         >
-          
           <Slider {...settings}>
-            <div className={style.SlidItem}>
-                <Link href="detail1"><img src="./images/1.jpg" alt="ss" /></Link>
-            </div  >
-            <div className={style.SlidItem}>
-            <Link href="detail2"><img src="./images/2.jpg" alt="ss" /></Link>
-            </div>
-            <div className={style.SlidItem}>
-            <Link href="detail3"><img src="./images/3.jpg" alt="ss" /></Link>
-            </div>
-            <div className={style.SlidItem}>
-            <Link href="detail4"><img src="./images/4.jpg" alt="ss" /></Link>
-            </div>
-
+            {this.renderSlides()} {/* 슬라이더 아이템을 렌더링하는 메소드를 호출합니다 */}
           </Slider>
         </div>
-        <div className={style.Footer}>
-            
-        </div>
+        <div className={style.Footer}></div>
       </div>
     );
   }

@@ -198,9 +198,8 @@
 
 .LinkImg .LImg{
     float: left;
-    width: 50%;
+    width: 49.9%;
     object-fit: contain;
-    height: 100%;
 }
 .LinkImg .RImg{
     float: left;

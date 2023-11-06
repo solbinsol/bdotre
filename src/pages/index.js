@@ -7,44 +7,41 @@ import Link from "next/link";
 import Slider from "../component/Slider/Slider";
 import Footer from "../component/Footer/Footer";
 import Header from "@/component/Header/Header";
-import mysql from 'mysql2/promise';
+import  { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 
 
-const dbConfig = {
-    host: 'localhost',
-    user: 'root',
-    password: '5475',
-    database: 'BDOT'
-  };
-  
-  export async function getServerSideProps(context) {
+// 페이지 컴포넌트 내부
+export async function getServerSideProps(context) {
     let clothes = [];
     try {
-        // 데이터베이스에 연결
-        const connection = await mysql.createConnection(dbConfig);
-        // Clothes 테이블에서 데이터 조회
-        const [rows, fields] = await connection.execute('SELECT * FROM Clothes');
-        clothes = rows;
-
-        await connection.end();
-      } catch (error) {
-        console.log(rows[0])
-        console.log(product)
-        console.error('Database connection or query failed:', error);
-        // 에러 처리 로직
-      }
-    
-      // props를 통해 페이지에 데이터 전달
-      return {
-        props: { clothes }
-      };
+      // 내부 API 라우트를 호출하여 데이터 검색
+      const res = await fetch('http://localhost:3000/api/clothes');
+      const data = await res.json();
+      clothes = data.clothes;
+    } catch (error) {
+      console.error('Failed to fetch clothes:', error);
     }
+    
+    return {
+      props: { clothes },
+    };
+  }
+  
     
 
 const main = ({ clothes }) => {
+    const router = useRouter();
 
-
+    useEffect(() => {
+      // Shop 링크를 클릭하여 페이지에 접근했을 때 실행
+      if (router.query.scroll === 'shop') {
+        window.scrollTo(0, 900);
+      }
+    }, [router]);
+  
+  
     return(
 
         <div>
@@ -96,7 +93,7 @@ const main = ({ clothes }) => {
 
                 </div>
                 <div className={style.SB}>
-                    <Slider></Slider>
+                    <Slider clothes={clothes} ></Slider>
                 </div>  
             </div>
             <Footer></Footer>

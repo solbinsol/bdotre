@@ -1,0 +1,11 @@
+.MyPageBox{
+    margin-top: 10%;
+    width: 80%;
+    margin-left: 10%;
+    height: 50vh;
+}
+.MyPageBox h1{
+    margin: 0;
+    padding: 0;
+}
+
