@@ -16,7 +16,7 @@ const Header = () =>{
         
         if (storedToken) {
           const decoded = jwt.decode(storedToken);
-          setUserName(decoded.username);
+          setUserName(decoded.name);
         }
       }, []);
 

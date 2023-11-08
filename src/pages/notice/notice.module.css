@@ -24,7 +24,8 @@
 
 .NoticeTable{
     width: 100%;
-    font-size: 12px;
+    margin-top: 40px;
+    font-size: 15px;
     border: 2px solid #000;
     border-collapse: collapse;
 }

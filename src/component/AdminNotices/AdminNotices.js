@@ -100,22 +100,29 @@ const handleDeleteNotice = async (noticeId) => {
         </tbody>
       </table>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="title"
-          value={newNotice.title}
-          onChange={handleChange}
-          placeholder="제목을 입력하세요"
-          required
-        />
-        <textarea
-          name="content"
-          value={newNotice.content}
-          onChange={handleChange}
-          placeholder="내용을 입력하세요"
-          required
-        />
-        <button type="submit">공지사항 추가</button>
+        <div className={style.InputBox}>
+            <input
+            type="text"
+            name="title"
+            value={newNotice.title}
+            onChange={handleChange}
+            placeholder="제목을 입력하세요"
+            required
+            />
+        </div>
+        <div className={style.InputBox}>
+
+            <textarea
+            name="content"
+            value={newNotice.content}
+            onChange={handleChange}
+            placeholder="내용을 입력하세요"
+            required
+            />
+
+            <button type="submit">공지사항 추가</button>
+        </div>
+
       </form>
 
     </div>

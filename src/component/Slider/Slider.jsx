@@ -32,14 +32,16 @@ export default class Resizable extends Component {
 
   render() {
     const settings = {
-
       dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      arrows:true,
+      arrows: true,
+      autoplay: true, // 자동 재생 활성화
+      autoplaySpeed: 2000, // 2초마다 슬라이드
     };
+    
     return (
       <div className={style.Slid}>
         <h2 className={style.MidH}>Resizable Collapsible</h2>

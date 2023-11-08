@@ -9,10 +9,10 @@
 
 
 .MyPageBox{
-    margin-top: 10%;
+    margin-top: 120px;
     width: 80%;
     margin-left: 10%;
-    height: 50vh;
+    height: 500px;
 }
 .MyPageBox h1{
     font-family: 'Archivo';

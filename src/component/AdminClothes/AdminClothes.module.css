@@ -1,3 +1,44 @@
+@media screen and (max-width:721px) and (min-width:450px) {
+    .Closet table{
+        width: 100% !important;
+        font-size: 10px !important;
+    }
+    .ClothesBOX label {
+        width: 30% !important;
+    }
+    .ClothesBOX input{
+        margin-bottom: 2px !important;
+        width: 35% !important;
+        margin-left: 5px !important;
+        padding: 2px !important;
+        height: 30px;
+        margin: 0;
+        padding: 0;
+    }
+    .AdminClothes button{
+        width: 30% !important;
+    }
+}
+
+@media screen and (max-width:449px){
+    .AdminClothes table{
+        font-size: 10px !important;
+        width: 100% !important;
+    }
+    .ClothesBOX label {
+        width: 40% !important;
+    }
+    .ClothesBOX input{
+        margin-bottom: 2px !important;
+        width: 55% !important;
+        margin-left: 5px !important;
+        padding: 2px !important;
+        height: 30px;
+        margin: 0;
+        padding: 0;
+    }
+
+}
 .AdminClothes{
     width: 100%;
 }
@@ -11,7 +52,7 @@
     margin-top: 100px;
     border-collapse: collapse;
     font-size: 12px;
-    width: 50%;
+    width: 80%;
     border: 1px solid #000;
 }
 .Closet th{
@@ -22,5 +63,26 @@
 .Closet td{
     padding: 10px;
 
+    border: 1px solid #000;
+}
+.ClothesBOX{
+    width: 100%;
+}
+.ClothesBOX label{
+    display: inline-block;
+    width: 20%;
+
+}
+.ClothesBOX input{
+    width: 25%;
+    margin: 0;
+    padding: 0;
+}
+.AdminClothes button
+ {
+    width: 45.5%;
+    height: 30px;
+    margin-top: 15px;
+    background-color: white;
     border: 1px solid #000;
 }

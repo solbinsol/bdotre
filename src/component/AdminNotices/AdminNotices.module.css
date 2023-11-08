@@ -1,3 +1,12 @@
+@media screen and (max-width:721px) {
+    .NoticeTable{
+        font-size: 10px !important;
+    }
+    
+}
+.AdminNotices{
+    width: 100%;
+}
 .AdminNotices h1{
     margin: 0;
     margin: 85px 0 15px 0;
@@ -24,4 +33,29 @@
 
 .X{
     text-align: center;
+}
+.InputBox{
+    float: left;
+    width: 100%;
+}
+.InputBox input{
+    width: 99.8%;
+    margin: 0;
+    padding: 0;
+    margin-top: 15px;
+}
+.InputBox textarea{
+    margin-top: 5px;
+    height: 45px;
+    width: 99.7%;
+}
+
+
+.InputBox button
+ {
+    width: 40.5%;
+    height: 40px;
+    margin-top: 15px;
+    background-color: white;
+    border: 1px solid #000;
 }

@@ -41,7 +41,10 @@ const main = ({ clothes }) => {
       }
     }, [router]);
   
-  
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('ko-KR').format(price);
+      };
+      
     return(
 
         <div>
@@ -85,7 +88,7 @@ const main = ({ clothes }) => {
                         <Link href={`/detail/${Number(item.ClothesNum)}`}>
                            <img src={item.ClothesPicture} alt={item.ClothesName} />
                             <p>{item.ClothesName}</p>
-                            <p>{`${item.Price}0원`}</p>
+                            <p>{formatPrice(item.Price)}원</p> {/* 여기에서 함수를 호출 */}
                         </Link>
                         </div>
                     ))}

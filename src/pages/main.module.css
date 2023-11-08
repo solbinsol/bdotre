@@ -18,7 +18,7 @@
         margin-top: 65% !important;
 
         font-size: 15px !important;
-        margin-left: 40% !important;
+        margin-left: 38% !important;
     }
 
     .BigP2{
@@ -29,7 +29,7 @@
     }
     .SmallP2{
         font-size: 15px !important;
-        margin-left: 32% !important;
+        margin-left: 34% !important;
         margin-top: 65% !important;
 
     }
@@ -211,6 +211,7 @@
 }
 .LinkImg img{
     width: 100%;
+    
     height: 100%;
 }
 .LImg:hover .BigP1{

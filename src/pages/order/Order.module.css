@@ -68,3 +68,21 @@
     height: 30px;
     width: 70%;
 }
+.ProductInfo{
+    border: 1px solid #000;
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+}
+.postcode{
+    border: 1px solid #000;
+}
+
+.pay{
+    margin-top: 30px;
+    height: 50px;
+    font-family: 'GmarketSansMedium';
+    width: 200px;
+    background-color: white;
+    border: 3px solid #000;
+}

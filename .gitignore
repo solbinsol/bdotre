@@ -36,3 +36,6 @@ yarn-error.log*
 next-env.d.ts
 # .gitignore
 api/secret.js
+
+/.env.local
+.env.local

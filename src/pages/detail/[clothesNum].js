@@ -1,9 +1,10 @@
 import React from "react";
-import { useRouter,useEffect } from "next/router";
 import style from "./detail.module.css"
 import Link from "next/link";
 import Footer from "@/component/Footer/Footer";
 import Header from "@/component/Header/Header";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
   // 해당 페이지 컴포넌트의 getServerSideProps 함수
 // pages/detail/[clothesNum].js
@@ -40,7 +41,45 @@ export async function getServerSideProps(context) {
   
 
     const DetailPage = ({ product,sizes  }) => {
+        const router = useRouter();
+        const [selectedSize, setSelectedSize] = useState(''); // 추가된 부분
 
+       
+// 이전에 상품 상세 정보와 구매하기 버튼 로직...
+const handleBuyNow = async () => {
+  if (!selectedSize) {
+    alert('사이즈를 선택해주세요.');
+    return;
+  }
+  
+  try {
+    const response = await fetch('http://localhost:3000/api/order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: product.ClothesName,
+        size: selectedSize,
+        price: product.Price
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    router.push(`/order?orderId=${data.orderId}`);
+  } catch (error) {
+    console.error('주문 실패:', error);
+    alert('주문 처리 중 오류가 발생했습니다.',error);
+  }
+};
+
+  const formatPrice = (price) => {
+  return new Intl.NumberFormat('ko-KR').format(price);
+};
 
     return(
         <div>
@@ -66,8 +105,8 @@ export async function getServerSideProps(context) {
                             </ul>
                             <ul className={style.DTli}>
                             <h3>Price Info</h3>
-                                <li>비닷 판매가<span> {product.Price}0</span></li>
-                                <li>비닷 회원가<span> {(Number(product.Price) - 1).toFixed(2)}0 </span></li>
+                                <li>비닷 판매가<span> {formatPrice(product.Price)}</span></li>
+                                <li>비닷 회원가<span> {formatPrice(product.Price -2000) } </span></li>
                                 <li className={style.BD}>비닷 적릭급<span>최대 3,000 포인트</span></li>
                                 <div className={style.SizeTable}>
                                 <table className={style.ST}>
@@ -96,15 +135,13 @@ export async function getServerSideProps(context) {
 
                                 </table>
                                 <div className={style.BuyBtn}>
-                                    <select name="size" className={style.OPsize}>
-                                        <option value=''>사이즈 선택</option>
-                                        <option value='s'>S</option>
-                                        <option value='m'>M</option>
-                                        <option value='l'>L</option>
-                                    </select>
-                                    <Link href="/order">
-                                        <input className={style.aa} type="submit" value="BUY NOW"/>
-                                    </Link>
+                                <select name="size" className={style.OPsize} onChange={(e) => setSelectedSize(e.target.value)}>
+                                <option value=''>사이즈 선택</option>
+                                    {sizes.map((size) => (
+                                        <option key={size.SizeID} value={size.Size}>{size.Size}</option> 
+                                ))}
+                                </select>
+                                        <input className={style.aa} onClick={handleBuyNow} type="submit" value="BUY NOW"/>
                                 </div>
                             </div>
                             </ul>

@@ -1,4 +1,3 @@
-// pages/api/login.js
 import mysql from 'mysql2/promise';
 import bcrypt from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
@@ -9,7 +8,8 @@ const dbConfig = {
     user: 'root',
     password: '5475',
     database: 'BDOT'
-  };
+  };// pages/api/login.js
+
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { username, password } = req.body;
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         if (bcrypt.compareSync(password, user.password)) {
           // 비밀번호가 일치하면 JWT 생성
           const token = sign(
-            { userId: user.userNum, username: user.username,phone_number: user.phone_number , gender:user.gender ,birth_date : user.birth_date },
+            { userId: user.userNum, username: user.username,phone_number: user.phone_number , gender:user.gender ,birth_date : user.birth_date,name:user.name },
             secret,
             { expiresIn: '1h' }
           );

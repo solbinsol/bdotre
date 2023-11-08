@@ -228,7 +228,7 @@ const handleSubmit = async (e) => {
         </div>
 
       <form onSubmit={handleSubmit}>
-        <div>
+      <div className={style.ClothesBOX}>
             <h2>제품 추가</h2>
 
           <label>의류 이름:</label>
@@ -239,7 +239,7 @@ const handleSubmit = async (e) => {
             onChange={handleClothesChange}
           />
         </div>
-        <div>
+        <div className={style.ClothesBOX}>
           <label>가격:</label>
           <input
             type="number"
@@ -248,7 +248,7 @@ const handleSubmit = async (e) => {
             onChange={handleClothesChange}
           />
         </div>
-        <div>
+        <div className={style.ClothesBOX}>
           <label>이미지 URL:</label>
           <input
             type="text"
